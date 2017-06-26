@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FwModule } from '../fw/fw.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +19,8 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AppDataService } from './services/app-data.service';
 import { CountryPanelComponent } from './panels/country-panel/country-panel.component';
 import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { ImagePanelComponent } from './panels/image-panel/image-panel.component'
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     FwModule,
     RouterModule.forRoot(appRoutes)
   ],
