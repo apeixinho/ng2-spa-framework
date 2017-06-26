@@ -12,6 +12,13 @@ import { appRoutes } from './app.routing';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { CountryMaintComponent } from './country-maint/country-maint.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { UserService } from './services/user.service';
+import { UserApi } from '../fw/users/user-api';
+import { AuthGuard } from './services/auth-guard.service';
+import { AppDataService } from './services/app-data.service';
+import { CountryPanelComponent } from './panels/country-panel/country-panel.component';
+import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,10 @@ import { CountryMaintComponent } from './country-maint/country-maint.component';
     SettingsComponent,
     CountryDetailComponent,
     CountryListComponent,
-    CountryMaintComponent
+    CountryMaintComponent,
+    AuthenticatedUserComponent,
+    CountryPanelComponent,
+    ImagePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,12 @@ import { CountryMaintComponent } from './country-maint/country-maint.component';
     FwModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    UserService,
+    { provide: UserApi, useExisting: UserService },
+    AuthGuard,
+    AppDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
